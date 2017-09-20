@@ -5,15 +5,15 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>948e6811-0208-47ed-b418-65b9c8265c52</ProjectGuid>
+    <ProjectGuid>56cc2bd9-5c5f-427a-9d02-a66f8cc9ee17</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Exploration</RootNamespace>
-    <AssemblyName>Exploration</AssemblyName>
+    <RootNamespace>Exploration.Catas</RootNamespace>
+    <AssemblyName>Exploration.Catas</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFSharpCoreVersion>4.4.1.0</TargetFSharpCoreVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Name>Exploration</Name>
+    <Name>Exploration.Catas</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -55,8 +55,15 @@
   </Choose>
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
-    <Compile Include="Tutorial.fsx" />
     <Content Include="packages.config" />
+    <None Include="catas.fsx" />
+    <None Include="Script1.fsx" />
+    <None Include="Script2.fsx" />
+    <None Include="Script3.fsx" />
+    <None Include="Script4.fsx" />
+    <None Include="Script5.fsx" />
+    <None Include="Script6.fsx" />
+    <None Include="TypeClasses.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
