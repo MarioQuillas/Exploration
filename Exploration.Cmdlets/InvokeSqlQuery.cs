@@ -92,8 +92,34 @@
 
         private void ValidateParameters()
         {
-            if (string.IsNullOrEmpty(this.Server)) this.ThrowParameterError("Server");
-            if (string.IsNullOrEmpty(this.Database)) this.ThrowParameterError("Database");
+            const string ServerVariable = "InvokeSqlQueryServer";
+            const string DatabaseVariable = "InvokeSqlQueryDatabase";
+
+            if (!string.IsNullOrEmpty(this.Server))
+            {
+                this.SessionState.PSVariable.Set(ServerVariable, this.Server);
+            }
+            else
+            {
+                this.Server = 
+                    this.SessionState.PSVariable.GetValue(
+                        ServerVariable, defaultValue: string.Empty)
+                        .ToString();
+                if (string.IsNullOrEmpty(this.Server)) this.ThrowParameterError("Server");               
+            }
+
+            if (!string.IsNullOrEmpty(this.Database))
+            {
+                this.SessionState.PSVariable.Set(DatabaseVariable, this.Database);
+            }
+            else
+            {
+                this.Database =
+                    this.SessionState.PSVariable.GetValue(
+                            DatabaseVariable, defaultValue: string.Empty)
+                        .ToString();
+                if (string.IsNullOrEmpty(this.Database)) this.ThrowParameterError("Database");
+            }
         }
 
         private void ThrowParameterError(string parameterName)
