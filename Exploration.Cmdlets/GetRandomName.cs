@@ -1,4 +1,4 @@
-﻿namespace LFWorkflow.Cmdlets
+﻿namespace Exploration.Cmdlets
 {
     using System;
     using System.IO;
