@@ -3,7 +3,6 @@
     using System;
     using System.Data.SqlClient;
     using System.Management.Automation;
-    using System.Security.Policy;
 
     [Cmdlet(VerbsLifecycle.Invoke, "SqlQuery", DefaultParameterSetName = IntegratedAuth)]
     public class InvokeSqlQuery : PSCmdlet
