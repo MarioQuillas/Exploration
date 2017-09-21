@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="testing-cmdlets.ps1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Exploration.Cmdlets\Exploration.Cmdlets.csproj">
