@@ -36,7 +36,20 @@
         {
             this.ValidateParameters();
 
-            var connectionString = "";
+            this.WriteVerbose(this.ParameterSetName);
+
+            string connectionString;
+
+            if (this.ParameterSetName == IntegratedAuth)
+            {
+                connectionString =
+                    $"Data Source={this.Server};Initial Catalog={this.Database};Integrated Security=SSPI;Persist Security Info=true";
+            }
+            else
+            {
+                connectionString =
+                    $"Data Source={this.Server};Initial Catalog={this.Database};User ID={this.Username};Password={this.Password}";
+            }
             this.connection = new SqlConnection(connectionString);
             this.connection.Open();
         }
