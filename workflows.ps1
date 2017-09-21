@@ -4,14 +4,14 @@
 
 Workflow Get-CimClassWF {
     [CmdletBinding()]
-    Param($CimClass = "Win32_Bios")
+    Param($CimClass = "Win32_Bios", $Comp = 'DC1')
 
-    Get-CimInstance $CimClass
+    Get-CimInstance $CimClass -PSComputerName $Comp #-PSCredential $credrk
 }
 
 Get-CimClassWF
 
-Get-CimClassWF -CimClass "Win32_ComputerSystem"
+Get-CimClassWF -CimClass "Win32_ComputerSystem" -Comp srv2
 
 Workflow Get-Bios {
     Get-CimInstance -ClassName Win32_Bios
