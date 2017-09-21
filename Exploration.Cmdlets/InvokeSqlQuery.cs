@@ -3,18 +3,32 @@
     using System;
     using System.Data.SqlClient;
     using System.Management.Automation;
+    using System.Security.Policy;
 
-    [Cmdlet(VerbsLifecycle.Invoke, "SqlQuery")]
+    [Cmdlet(VerbsLifecycle.Invoke, "SqlQuery", DefaultParameterSetName = IntegratedAuth)]
     public class InvokeSqlQuery : PSCmdlet
     {
-        [Parameter(Position = 1)]
+        private const string IntegratedAuth = "IntegratedAuth";
+
+        private const string SqlAuth = "SqlAuth";
+
+        [Parameter(Position = 1, ParameterSetName = IntegratedAuth)]
+        [Parameter(Position = 1, ParameterSetName = SqlAuth)]
         public string Server { get; set; }
 
-        [Parameter(Position = 2)]
+        [Parameter(Position = 2, ParameterSetName = IntegratedAuth)]
+        [Parameter(Position = 2, ParameterSetName = SqlAuth)]
         public string Database { get; set; }
 
-        [Parameter(Position = 3, Mandatory = true)]
+        [Parameter(Position = 3, Mandatory = true, ParameterSetName = IntegratedAuth)]
+        [Parameter(Position = 3, Mandatory = true, ParameterSetName = SqlAuth)]
         public string Query { get; set; }
+
+        [Parameter(Position = 4, ParameterSetName = SqlAuth, Mandatory = true)]
+        public string Username { get; set; }
+
+        [Parameter(Position = 5, ParameterSetName = SqlAuth, Mandatory = true)]
+        public string Password { get; set; }
 
         private SqlConnection connection;
 
