@@ -15,6 +15,10 @@ Project("{DA7A21FA-8162-4350-AD77-A8D1B671F3ED}") = "Exploration.RScripts", "Exp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exploration.Cmdlets.Tests", "Exploration.Cmdlets.Tests\Exploration.Cmdlets.Tests.csproj", "{14344E09-1C6B-4930-84CF-8187CE12B0FA}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Exploration.Scraping", "Exploration.Scraping\Exploration.Scraping.fsproj", "{76AA30DB-3E9F-4170-8EDE-ED124CB1A094}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Exploration.ComputationExpressions", "Exploration.ComputationExpressions\Exploration.ComputationExpressions.fsproj", "{9A19401B-12E8-4248-BCF4-AFE1E8927AF8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +47,14 @@ Global
 		{14344E09-1C6B-4930-84CF-8187CE12B0FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14344E09-1C6B-4930-84CF-8187CE12B0FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14344E09-1C6B-4930-84CF-8187CE12B0FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76AA30DB-3E9F-4170-8EDE-ED124CB1A094}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76AA30DB-3E9F-4170-8EDE-ED124CB1A094}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76AA30DB-3E9F-4170-8EDE-ED124CB1A094}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76AA30DB-3E9F-4170-8EDE-ED124CB1A094}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A19401B-12E8-4248-BCF4-AFE1E8927AF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A19401B-12E8-4248-BCF4-AFE1E8927AF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A19401B-12E8-4248-BCF4-AFE1E8927AF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A19401B-12E8-4248-BCF4-AFE1E8927AF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
