@@ -12,10 +12,43 @@ open FSharp.Charting
 //type TotalEuronext_1 =
 //  HtmlProvider<"https://www.euronext.com/fr/products/equities/FR0000120271-XPAR">
 
+let array1 = [| 1; 2; 3; 4; 5; 6 |]
+let list1 = [ 2; 4; 6; 8; 10; 12; 14; 16 ]
+
 type TotalEuronext =
   HtmlProvider<"https://www.euronext.com/fr/nyx_eu_listings/real-time/quote?isin=FR0000120271&mic=XPAR">
 
 let scrapRealTime = TotalEuronext.GetSample()
+
+let divs = scrapRealTime.Html.Descendants["div"]
+let spans = scrapRealTime.Html.Descendants["span"]
+
+let totalDivs = Seq.length divs
+let totalSpans = Seq.length spans
+
+let priceToto = 
+  spans 
+  |> Seq.choose (fun x -> 
+    x.TryGetAttribute("id") 
+    |> Option.map(fun a ->  a.Value(), x.InnerText())
+    )
+
+let price =
+  spans
+  |> Seq.filter (fun node -> 
+    let optionIdValue = 
+      node.TryGetAttribute("id") 
+      |> Option.map(fun attribute -> attribute.Value() )
+
+    if optionIdValue.IsNone then
+      false
+    else
+      System.String.Equals(optionIdValue.Value ,"price")
+    )
+  |> Seq.map(fun node -> node.InnerText())
+  |> Seq.tryHead
+
+scrapRealTime.Tables.Table6.Rows
 
 scrapRealTime.Tables.Table1.Headers
 scrapRealTime.Tables.Table1.Rows
