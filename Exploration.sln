@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26823.1
+VisualStudioVersion = 15.0.26923.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exploration.Cmdlets", "Exploration.Cmdlets\Exploration.Cmdlets.csproj", "{21289238-3FCD-4841-AFC1-20E787C4BA13}"
 EndProject
@@ -22,6 +22,8 @@ EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Exploration.Suave", "Exploration.Suave\Exploration.Suave.fsproj", "{0C76F182-6C82-42C2-B9A3-EF5E48CF9429}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Exploration.WebHost", "Exploration.WebHost\Exploration.WebHost.fsproj", "{BBD49F40-812C-4DEB-8BFC-47566E8F9CF7}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Exploration.Concurrency", "Exploration.Concurrency\Exploration.Concurrency.fsproj", "{3BB983B6-8F14-4652-8261-71B3631B6273}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +69,10 @@ Global
 		{BBD49F40-812C-4DEB-8BFC-47566E8F9CF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBD49F40-812C-4DEB-8BFC-47566E8F9CF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBD49F40-812C-4DEB-8BFC-47566E8F9CF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BB983B6-8F14-4652-8261-71B3631B6273}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BB983B6-8F14-4652-8261-71B3631B6273}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BB983B6-8F14-4652-8261-71B3631B6273}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BB983B6-8F14-4652-8261-71B3631B6273}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
