@@ -1,6 +1,7 @@
 namespace Exploration.IoT.TestSilo
 {
     using System;
+    using System.Data.SqlClient;
 
     using Exploration.IoT.GrainClasses;
 
@@ -18,6 +19,10 @@ namespace Exploration.IoT.TestSilo
     {
         static void Main(string[] args)
         {
+            //var toto = new SqlConnection(
+            //    "Data Source=SQLLFISDEV,1460;Initial Catalog=TardisFlow;Persist Security Info=True;User ID=TardisFlowUsrRW;Password=6Sk&>3R-");
+
+
             // First, configure and start a local silo
             var siloConfig = ClusterConfiguration.LocalhostPrimarySilo();
             var silo = new SiloHost("TestSilo", siloConfig);

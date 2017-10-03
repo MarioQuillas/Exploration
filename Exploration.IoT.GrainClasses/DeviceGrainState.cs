@@ -4,6 +4,7 @@ namespace Exploration.IoT.GrainClasses
 
     public class DeviceGrainState //: IGrainState
     {
+        public double LastValue { get; set; }
         //double LastValue { get; set; }
     }
 }

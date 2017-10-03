@@ -14,22 +14,26 @@ namespace Exploration.IoT.GrainClasses
     [StorageProvider(ProviderName="store1")]
     public class DeviceGrain : Grain<DeviceGrainState>, IDeviceGrain
     {
-        private double lastValue;
+        //private double lastValue;
 
         public override Task OnActivateAsync()
         {
             var id = this.GetPrimaryKeyLong();
             Console.WriteLine("Activated {0}", id);
+            Console.WriteLine("Activated state = {0}", this.State.LastValue);
             return base.OnActivateAsync();
         }
 
-        public Task SetTemperature(double value)
+        public async Task SetTemperature(double value)
         {
-            if (this.lastValue < 100 && value >= 100)
+            if (this.State.LastValue < 100 && value >= 100)
                 Console.WriteLine("High temperature recorded {0}", value);
 
-            this.lastValue = value;
-            return Task.CompletedTask;
+            if (this.State.LastValue != value)
+            {
+                this.State.LastValue = value;
+                await this.WriteStateAsync();
+            }
         }
     }
 }

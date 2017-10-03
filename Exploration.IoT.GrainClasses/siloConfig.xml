@@ -8,4 +8,5 @@
       <Provider Type="Orleans.Storage.AzureBlobStorage" Name="store2"
                 DataConnectionString="DefaultEndpointsProtocol=https;AccountName=data2;AccountKey=SOMETHING2"  />
     </StorageProviders>
-  
+  </Globals>
+</OrleansConfiguration>
