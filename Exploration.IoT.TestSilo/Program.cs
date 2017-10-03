@@ -3,6 +3,7 @@ namespace Exploration.IoT.TestSilo
     using System;
     using System.Collections.Generic;
     using System.Data.SqlClient;
+    using System.Runtime.Remoting;
 
     using Exploration.IoT.GrainClasses;
 
@@ -36,9 +37,9 @@ namespace Exploration.IoT.TestSilo
             //siloConfig.Globals.RegisterStorageProvider<AdoNetStorageProvider>("OrleansSqlStorage", properties);
 
 
-            siloConfig
-                .Globals
-                .RegisterStorageProvider<AzureTableStorage>("OrleansAzureTableStorage", properties);
+            //siloConfig
+            //    .Globals
+            //    .RegisterStorageProvider<AzureTableStorage>("OrleansAzureTableStorage", properties);
 
             //var custom = new Dictionary<string, object>()
             //                 {
@@ -66,10 +67,27 @@ namespace Exploration.IoT.TestSilo
             // This is the place for your test code.
             //
 
-            var grain = client.GetGrain<IDeviceGrain>((long)0);
+            //var grain = client.GetGrain<IDeviceGrain>((long)0);
+            //var deviceGrain_3 = client.GetGrain<IDeviceGrain>(3);
+            //deviceGrain_3.JoinSystem("vehicle1").Wait();
+
+            //var deviceGrain_4 = client.GetGrain<IDeviceGrain>(4);
+            //deviceGrain_4.JoinSystem("vehicle1").Wait();
+
+            //var deviceGrain_6 = client.GetGrain<IDeviceGrain>(6);
+            //deviceGrain_6.JoinSystem("vehicle1").Wait();
+
+            var observer = new SystemObserver();
+            var observerRef = client.CreateObjectReference<ISystemObserver>(observer).Result;
+
+            var systemGrain = client.GetGrain<ISystemGrain>(0);
+            systemGrain.Subscribe(observerRef).Wait();
+
+            var grain = client.GetGrain<IGrainDecoder>(0);
             while (true)
             {
-                grain.SetTemperature(double.Parse(Console.ReadLine()));
+                //grain.SetTemperature(double.Parse(Console.ReadLine()));
+                grain.Decode(Console.ReadLine());
             }
 
             Console.WriteLine("\nPress Enter to terminate...");

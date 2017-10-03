@@ -119,7 +119,9 @@
   <ItemGroup>
     <Compile Include="DeviceGrain.cs" />
     <Compile Include="DeviceGrainState.cs" />
+    <Compile Include="GrainDecoder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemGrain.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Exploration.IoT.GrainInterfaces\Exploration.IoT.GrainInterfaces.csproj">
