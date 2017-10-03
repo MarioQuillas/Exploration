@@ -25,6 +25,14 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Exploration.WebHost", "Expl
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Exploration.Concurrency", "Exploration.Concurrency\Exploration.Concurrency.fsproj", "{3BB983B6-8F14-4652-8261-71B3631B6273}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exploration.AkkaMovieStreaming", "Exploration.AkkaMovieStreaming\Exploration.AkkaMovieStreaming.csproj", "{D6CFA2B4-B7D3-4E39-86E4-EC88C43BFD3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exploration.IoT.GrainInterfaces", "Exploration.IoT.GrainInterfaces\Exploration.IoT.GrainInterfaces.csproj", "{D363FA2E-92A6-43F8-A330-90D4DEC60FE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exploration.IoT.GrainClasses", "Exploration.IoT.GrainClasses\Exploration.IoT.GrainClasses.csproj", "{78BB5DF5-4EF4-4DB3-80CB-2B903C016528}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exploration.IoT.TestSilo", "Exploration.IoT.TestSilo\Exploration.IoT.TestSilo.csproj", "{383F63C1-5C61-4C56-8FC5-C0C8A90B2D6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +81,22 @@ Global
 		{3BB983B6-8F14-4652-8261-71B3631B6273}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BB983B6-8F14-4652-8261-71B3631B6273}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BB983B6-8F14-4652-8261-71B3631B6273}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6CFA2B4-B7D3-4E39-86E4-EC88C43BFD3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6CFA2B4-B7D3-4E39-86E4-EC88C43BFD3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6CFA2B4-B7D3-4E39-86E4-EC88C43BFD3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6CFA2B4-B7D3-4E39-86E4-EC88C43BFD3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D363FA2E-92A6-43F8-A330-90D4DEC60FE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D363FA2E-92A6-43F8-A330-90D4DEC60FE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D363FA2E-92A6-43F8-A330-90D4DEC60FE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D363FA2E-92A6-43F8-A330-90D4DEC60FE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78BB5DF5-4EF4-4DB3-80CB-2B903C016528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78BB5DF5-4EF4-4DB3-80CB-2B903C016528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78BB5DF5-4EF4-4DB3-80CB-2B903C016528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78BB5DF5-4EF4-4DB3-80CB-2B903C016528}.Release|Any CPU.Build.0 = Release|Any CPU
+		{383F63C1-5C61-4C56-8FC5-C0C8A90B2D6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{383F63C1-5C61-4C56-8FC5-C0C8A90B2D6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{383F63C1-5C61-4C56-8FC5-C0C8A90B2D6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{383F63C1-5C61-4C56-8FC5-C0C8A90B2D6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
