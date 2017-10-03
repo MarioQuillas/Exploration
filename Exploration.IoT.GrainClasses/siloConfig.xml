@@ -2,10 +2,13 @@
 <OrleansConfiguration xmlns="urn:orleans">
   <Globals>
     <StorageProviders>
-      <Provider Type="Orleans.Storage.MemoryStorage" Name="DevStore" />
-      <Provider Type="Orleans.Storage.AzureTableStorage" Name="store1"
-                DataConnectionString="DefaultEndpointsProtocol=https;AccountName=data1;AccountKey=SOMETHING1" />
-      <Provider Type="Orleans.Storage.AzureBlobStorage" Name="store2"
+      <Provider Type="Orleans.Storage.MemoryStorage" 
+                Name="DevStore" />
+      <Provider Type="Orleans.Storage.AzureTableStorage" 
+                Name="OrleansAzureTableStorage"
+                DataConnectionString="UseDevelopmentStorage=true" />
+      <Provider Type="Orleans.Storage.AzureBlobStorage" 
+                Name="store2"
                 DataConnectionString="DefaultEndpointsProtocol=https;AccountName=data2;AccountKey=SOMETHING2"  />
     </StorageProviders>
   </Globals>

@@ -1,6 +1,7 @@
 namespace Exploration.IoT.TestSilo
 {
     using System;
+    using System.Collections.Generic;
     using System.Data.SqlClient;
 
     using Exploration.IoT.GrainClasses;
@@ -12,6 +13,8 @@ namespace Exploration.IoT.TestSilo
     using Exploration.IoT.GrainClasses;
     using Exploration.IoT.GrainInterfaces;
 
+    using Orleans.Storage;
+
     /// <summary>
     /// Orleans test silo host
     /// </summary>
@@ -19,12 +22,33 @@ namespace Exploration.IoT.TestSilo
     {
         static void Main(string[] args)
         {
-            //var toto = new SqlConnection(
-            //    "Data Source=SQLLFISDEV,1460;Initial Catalog=TardisFlow;Persist Security Info=True;User ID=TardisFlowUsrRW;Password=6Sk&>3R-");
+            var properties = new Dictionary<string, string>()
+                                 {
+                                     //["AdoInvariant"] = "System.Data.SqlClient",
+                                     //["DataConnectionString"] = "Data Source=SQLLFISDEV,1460;Initial Catalog=TardisFlow;Persist Security Info=True;User ID=TardisFlowUsrRW;Password=6Sk&>3R-",
+                                     //["UseJsonFormat"] = "true"
 
+                                     ["DataConnectionString"] = "UseDevelopmentStorage=true",
+                                 };
 
             // First, configure and start a local silo
             var siloConfig = ClusterConfiguration.LocalhostPrimarySilo();
+            //siloConfig.Globals.RegisterStorageProvider<AdoNetStorageProvider>("OrleansSqlStorage", properties);
+
+
+            siloConfig
+                .Globals
+                .RegisterStorageProvider<AzureTableStorage>("OrleansAzureTableStorage", properties);
+
+            //var custom = new Dictionary<string, object>()
+            //                 {
+            //                     ["directory"] = "wdqsdf"
+            //                 };
+
+            //siloConfig
+            //    .Globals
+            //    .RegisterStorageProvider<Exploration.IoT.FileStorage.FileStorageProvider>("sd", custom);
+
             var silo = new SiloHost("TestSilo", siloConfig);
             silo.InitializeOrleansSilo();
             silo.StartOrleansSilo();

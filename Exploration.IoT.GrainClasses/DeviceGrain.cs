@@ -11,7 +11,7 @@ namespace Exploration.IoT.GrainClasses
     /// <summary>
     /// Grain implementation class DeviceGrain.
     /// </summary>
-    [StorageProvider(ProviderName="store1")]
+    [StorageProvider(ProviderName = "OrleansAzureTableStorage")]
     public class DeviceGrain : Grain<DeviceGrainState>, IDeviceGrain
     {
         //private double lastValue;
