@@ -1,7 +1,9 @@
 ﻿& "C:\Program Files\R\R-3.1.2\bin\Rscript.exe" "C:\MyGithub\Exploration\Exploration.RScripts\script1.R"
 
 $conn = New-Object System.Data.SqlClient.SqlConnection # System.Data.OleDb.OleDbConnection
-$conn.ConnectionString = "Data Source=SQLLFISDEV,1460;Initial Catalog=TardisFlow;Persist Security Info=True;User ID=TardisFlowUsrRW;Password=6Sk&>3R-" # whatever you are testing
+#$conn.ConnectionString = "Data Source=SQLLFISDEV,1460;Initial Catalog=TardisFlow;Persist Security Info=True;User ID=TardisFlowUsrRW;Password=6Sk&>3R-" # whatever you are testing
+
+$conn.ConnectionString = "Data Source=(localdb)\MSSQLLocalDb;Initial Catalog=LocalTardisFlow;Integrated Security=True"
 
 $command = New-Object System.Data.SqlClient.SqlCommand # $conn.CreateCommand() 
 $command.CommandText = "SELECT * FROM TEST_TABLE"
@@ -17,6 +19,12 @@ while($sqlReader.Read())
 }
 
 $conn.Close()
+
+Trace-Command -Name ParameterBinding -Expression  { 
+
+  Get-Process  -Name powershell  | Stop-Process  -WhatIf
+
+}  -PSHost
 
 $azureEmulatorExe = "C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator\AzureStorageEmulator.exe"
 
