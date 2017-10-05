@@ -11,7 +11,6 @@ namespace Exploration.IoT.TestSilo
     using Orleans.Runtime.Configuration;
     using Orleans.Runtime.Host;
 
-    using Exploration.IoT.GrainClasses;
     using Exploration.IoT.GrainInterfaces;
 
     using Orleans.Storage;

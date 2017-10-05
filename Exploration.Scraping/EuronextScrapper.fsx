@@ -1,4 +1,4 @@
-﻿#I @"../packages/FSharp.Data.2.4.0/lib/net40"
+﻿#I @"../packages/FSharp.Data.2.4.1/lib/net40"
 #r "FSharp.Data.dll"
 //#load some file
 //#time 
@@ -74,9 +74,9 @@ scrapRealTime.Tables.Table6.Headers
 scrapRealTime.Tables.Table6.Rows
 scrapRealTime.Tables.Table6.Name
 
-scrapRealTime.Tables.Table7.Headers
-scrapRealTime.Tables.Table7.Rows
-scrapRealTime.Tables.Table7.Name
+//scrapRealTime.Tables.Table7.Headers
+//scrapRealTime.Tables.Table7.Rows
+//scrapRealTime.Tables.Table7.Name
 
 //let htmlTotalEuronext =
 //  HtmlDocument.Load("https://www.euronext.com/fr/nyx_eu_listings/real-time/quote?isin=FR0000120271&mic=XPAR")
