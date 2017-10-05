@@ -40,7 +40,7 @@ namespace Exploration.IoT.GrainClasses
             var systemGrain = this.GrainFactory.GetGrain<ISystemGrain>(0);//, this.State.System);
             var reading = new TemperatureReading()
                               {
-                                  DeviceId = this.GetPrimaryKeyLong(),
+                                  DeviceId =  this.GetPrimaryKeyLong(),
                                   Time = DateTime.UtcNow,
                                   Value = value
                               };
