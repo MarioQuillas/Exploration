@@ -1,4 +1,4 @@
-﻿#I @"../packages/FSharp.Data.2.4.0/lib/net40"
+﻿#I @"../packages/FSharp.Data.2.4.2/lib/net45"
 #r "FSharp.Data.dll"
 //#load some file
 //#time 

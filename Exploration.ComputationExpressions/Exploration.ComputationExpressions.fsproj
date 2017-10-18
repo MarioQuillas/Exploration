@@ -62,6 +62,8 @@
     <None Include="traceMonad.fsx" />
     <None Include="traceMonad2.fsx" />
     <Content Include="packages.config" />
+    <Compile Include="RailwayCombinatorModule.fs" />
+    <Compile Include="FizzBuzz_RailwayOriented_UsingAppend.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Deedle">
@@ -71,7 +73,7 @@
       <HintPath>..\packages\FSharp.Charting.0.91.1\lib\net45\FSharp.Charting.dll</HintPath>
     </Reference>
     <Reference Include="FSharp.Data">
-      <HintPath>..\packages\FSharp.Data.2.4.1\lib\net40\FSharp.Data.dll</HintPath>
+      <HintPath>..\packages\FSharp.Data.2.4.2\lib\net45\FSharp.Data.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core">

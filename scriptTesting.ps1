@@ -31,6 +31,4 @@ $azureEmulatorExe = "C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulato
 #Account name: devstoreaccount1
 #Account key: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 
-
-
-
+ls alias:
