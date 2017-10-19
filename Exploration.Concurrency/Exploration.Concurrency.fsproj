@@ -55,10 +55,10 @@
   </Choose>
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
+    <None Include="Async.fsx" />
     <Compile Include="Agents.fsx" />
     <None Include="Reactive.fsx" />
     <Content Include="packages.config" />
-    <None Include="Async.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

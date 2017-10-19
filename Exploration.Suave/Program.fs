@@ -8,14 +8,14 @@ open Suave.Operators
 
 let qsdf =  path "/hello" >=> OK "Hello, folks"
 let titi =
-    choose
-        [ qsdf
-          path "/goodbye" >=> OK "GoodByeeeee!!!"]
+  choose
+    [ qsdf
+      path "/goodbye" >=> OK "GoodByeeeee!!!"]
 
 let routes =
-    GET >=> titi
+  GET >=> titi
 
 [<EntryPoint>]
 let main argv = 
-    startWebServer defaultConfig routes
-    0 // return an integer exit code
+  startWebServer defaultConfig routes
+  0 // return an integer exit code
