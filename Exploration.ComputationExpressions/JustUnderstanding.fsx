@@ -93,3 +93,8 @@ let fizzBuzz =
 
 // test
 [1..100] |> List.iter fizzBuzz
+//-----------------------------
+let t = seq {
+  for i in 1 .. 10 do
+    yield i}
+

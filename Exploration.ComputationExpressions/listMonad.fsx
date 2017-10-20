@@ -31,10 +31,10 @@ type ListBuilder() =
 // make an instance of the workflow  
 let listbuilder = new ListBuilder()
 
-listbuilder { 
+let f = listbuilder { 
     yield 1
     yield 2
-    } |> printfn "Result for yield then yield: %A" 
+    } //|> printfn "Result for yield then yield: %A" 
 
 listbuilder { 
     yield 1

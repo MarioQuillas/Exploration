@@ -85,11 +85,14 @@ type TraceBuilder() =
 // make an instance of the workflow  
 let trace = new TraceBuilder()
 
+let g = trace {
+  let! b = Option.Some 1
+  return b}
+
 trace { 
-    if true then printfn "hello......."
-    if false then printfn ".......world"
-    return 1
-    } |> printfn "Result for sequential combine: %A" 
+  if true then printfn "hello......."
+  if false then printfn ".......world"
+  return 1 } |> printfn "Result for sequential combine: %A" 
 
 type IntOrBool = I of int | B of bool
 
@@ -130,7 +133,7 @@ trace {
     printfn "hello world"
     } |> printfn "Result for simple expression: %A" 
 
-trace { 
+let f = trace { 
     if false then return 1
-    } |> printfn "Result for if without else: %A" 
+    }// |> printfn "Result for if without else: %A" 
 

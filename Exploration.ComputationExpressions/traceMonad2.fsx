@@ -40,11 +40,12 @@
 // make an instance of the workflow  
 let trace = new TraceBuilder()
 
-trace { 
+let f = trace { 
     printfn "Part 1: about to return 1"
     return 1
     printfn "Part 2: after return has happened"
-    } |> printfn "Result for Part1 without Part2: %A" 
+    } //|> printfn "Result for Part1 without Part2: %A" 
+
 //
 //let f = trace { 
 //    printfn "Part 1: about to return 1"

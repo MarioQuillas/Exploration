@@ -64,8 +64,7 @@ let fileWriteWithAsync =
 let sleepWorkflow  = async{
   printfn "Starting sleep workflow at %O" DateTime.Now.TimeOfDay
   do! Async.Sleep 2000
-  printfn "Finished sleep workflow at %O" DateTime.Now.TimeOfDay
-  }
+  printfn "Finished sleep workflow at %O" DateTime.Now.TimeOfDay }
 
 Async.RunSynchronously sleepWorkflow 
 
@@ -82,8 +81,7 @@ let nestedWorkflow  = async{
   let! result = childWorkflow
 
   // done
-  printfn "Finished parent" 
-  }
+  printfn "Finished parent" }
 
 // run the whole workflow
 Async.RunSynchronously nestedWorkflow 
@@ -95,8 +93,7 @@ let testLoop = async {
         
       // sleep a bit 
       do! Async.Sleep 10  
-      printfn "..after"
-  }
+      printfn "..after" }
 
 Async.RunSynchronously testLoop
 
@@ -119,15 +116,13 @@ cancellationSource.Cancel()
 let sleepWorkflowMs ms = async {
   printfn "%i ms workflow started" ms
   do! Async.Sleep ms
-  printfn "%i ms workflow finished" ms
-  }
+  printfn "%i ms workflow finished" ms }
 
 let workflowInSeries = async {
   let! sleep1 = sleepWorkflowMs 1000
   printfn "Finished one" 
   let! sleep2 = sleepWorkflowMs 2000
-  printfn "Finished two" 
-  }
+  printfn "Finished two" }
 
 #time
 Async.RunSynchronously workflowInSeries 
