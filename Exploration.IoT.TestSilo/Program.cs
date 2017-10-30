@@ -4,16 +4,11 @@ namespace Exploration.IoT.TestSilo
     using System.Collections.Generic;
     using System.Data.SqlClient;
     using System.Runtime.Remoting;
-
     using Exploration.IoT.GrainClasses;
-
     using Orleans;
     using Orleans.Runtime.Configuration;
     using Orleans.Runtime.Host;
-
-    using Exploration.IoT.GrainClasses;
     using Exploration.IoT.GrainInterfaces;
-
     using Orleans.Storage;
 
     /// <summary>
@@ -24,13 +19,13 @@ namespace Exploration.IoT.TestSilo
         static void Main(string[] args)
         {
             var properties = new Dictionary<string, string>()
-                                 {
-                                     //["AdoInvariant"] = "System.Data.SqlClient",
-                                     //["DataConnectionString"] = "Data Source=SQLLFISDEV,1460;Initial Catalog=TardisFlow;Persist Security Info=True;User ID=TardisFlowUsrRW;Password=6Sk&>3R-",
-                                     //["UseJsonFormat"] = "true"
+            {
+                //["AdoInvariant"] = "System.Data.SqlClient",
+                //["DataConnectionString"] = "Data Source=SQLLFISDEV,1460;Initial Catalog=TardisFlow;Persist Security Info=True;User ID=TardisFlowUsrRW;Password=6Sk&>3R-",
+                //["UseJsonFormat"] = "true"
 
-                                     ["DataConnectionString"] = "UseDevelopmentStorage=true",
-                                 };
+                ["DataConnectionString"] = "UseDevelopmentStorage=true",
+            };
 
             // First, configure and start a local silo
             var siloConfig = ClusterConfiguration.LocalhostPrimarySilo();

@@ -15,6 +15,12 @@ let titi =
 let routes =
   GET >=> titi
 
+//let some1 url =
+//  let some2 url headers =  [url, headers] |> String.concat ""
+//  some2 url
+
+//let some3 = some1 ""
+
 [<EntryPoint>]
 let main argv = 
   startWebServer defaultConfig routes

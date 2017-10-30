@@ -59,6 +59,7 @@
     <Compile Include="Agents.fsx" />
     <None Include="Reactive.fsx" />
     <Content Include="packages.config" />
+    <None Include="AgentsPrimes.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

@@ -2,9 +2,7 @@ namespace Exploration.IoT.GrainClasses
 {
     using System;
     using System.Threading.Tasks;
-
     using Exploration.IoT.GrainInterfaces;
-
     using Orleans;
     using Orleans.Concurrency;
     using Orleans.Providers;
@@ -37,13 +35,13 @@ namespace Exploration.IoT.GrainClasses
                 await this.WriteStateAsync();
             }
 
-            var systemGrain = this.GrainFactory.GetGrain<ISystemGrain>(0);//, this.State.System);
+            var systemGrain = this.GrainFactory.GetGrain<ISystemGrain>(0); //, this.State.System);
             var reading = new TemperatureReading()
-                              {
-                                  DeviceId =  this.GetPrimaryKeyLong(),
-                                  Time = DateTime.UtcNow,
-                                  Value = value
-                              };
+            {
+                DeviceId = this.GetPrimaryKeyLong(),
+                Time = DateTime.UtcNow,
+                Value = value
+            };
 
             await systemGrain.SetTemperature(reading);
         }
