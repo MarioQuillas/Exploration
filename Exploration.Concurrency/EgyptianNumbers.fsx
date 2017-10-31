@@ -1,0 +1,2 @@
+﻿let subsets list n = 
+  ""

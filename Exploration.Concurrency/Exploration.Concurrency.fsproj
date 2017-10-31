@@ -57,6 +57,7 @@
   <ItemGroup>
     <None Include="Async.fsx" />
     <Compile Include="Agents.fsx" />
+    <None Include="EgyptianNumbers.fsx" />
     <None Include="Reactive.fsx" />
     <Content Include="packages.config" />
     <None Include="AgentsPrimes.fsx" />
@@ -67,6 +68,9 @@
       <Name>FSharp.Core</Name>
       <AssemblyName>FSharp.Core.dll</AssemblyName>
       <HintPath>$(MSBuildProgramFiles32)\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\$(TargetFSharpCoreVersion)\FSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Orleans">
+      <HintPath>..\packages\Microsoft.Orleans.Core.1.5.0\lib\net461\Orleans.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
