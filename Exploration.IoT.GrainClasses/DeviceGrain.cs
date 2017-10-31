@@ -10,8 +10,8 @@ namespace Exploration.IoT.GrainClasses
     /// <summary>
     /// Grain implementation class DeviceGrain.
     /// </summary>
-    //[StorageProvider(ProviderName = "OrleansAzureTableStorage")]
-    [Reentrant]
+    [StorageProvider(ProviderName = "OrleansAzureTableStorage")]
+    //[Reentrant]
     public class DeviceGrain : Grain<DeviceGrainState>, IDeviceGrain
     {
         //private double lastValue;
@@ -35,21 +35,21 @@ namespace Exploration.IoT.GrainClasses
                 await this.WriteStateAsync();
             }
 
-            var systemGrain = this.GrainFactory.GetGrain<ISystemGrain>(0); //, this.State.System);
-            var reading = new TemperatureReading()
-            {
-                DeviceId = this.GetPrimaryKeyLong(),
-                Time = DateTime.UtcNow,
-                Value = value
-            };
+            //var systemGrain = this.GrainFactory.GetGrain<ISystemGrain>(0); //, this.State.System);
+            //var reading = new TemperatureReading()
+            //{
+            //    DeviceId = this.GetPrimaryKeyLong(),
+            //    Time = DateTime.UtcNow,
+            //    Value = value
+            //};
 
-            await systemGrain.SetTemperature(reading);
+            //await systemGrain.SetTemperature(reading);
         }
 
-        public Task JoinSystem(string name)
-        {
-            this.State.System = name;
-            return this.WriteStateAsync();
-        }
+        //public Task JoinSystem(string name)
+        //{
+        //    this.State.System = name;
+        //    return this.WriteStateAsync();
+        //}
     }
 }

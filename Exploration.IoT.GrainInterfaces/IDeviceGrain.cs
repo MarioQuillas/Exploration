@@ -11,6 +11,6 @@ namespace Exploration.IoT.GrainInterfaces
     {
         Task SetTemperature(double value);
 
-        Task JoinSystem(string name);
+        //Task JoinSystem(string name);
     }
 }
