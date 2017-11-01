@@ -25,43 +25,27 @@ namespace Exploration.EgyptianNumbers
 
             //var qg = SubSets(aa, 3).ToList();
 
+            //var test = pgcdForN(30, 462, 390, 798);
+
+            var test = ppcm(3, 5, 7, 66);
+
             var seeds = new List<int>(){3, 5, 7, 11};
-
-            //var n = 11;
-
-            //var found = false;
-            //while (!found && n < 50)
-            //{
-            //    Console.WriteLine(n);
-            //    var g = SubSets(a, n);
-
-            //    long i = 1;
-
-            //    foreach (var item in g)
-            //    {
-            //        Console.Write(i + ": ");
-            //        PrintList(item);
-            //        i = i + 1;
-            //        if (SumInverse(item) == 1)
-            //        {
-            //            Console.Write("BINGO : ");
-            //            PrintList(item);
-            //            found = true;
-            //            break;
-
-            //        }
-            //    }
-
-            //    n = n + 2;
-            //}
 
             var n = 11;
 
             var found = false;
+
+            var filtered = a.Where(x =>
+            {
+                //var result = true;
+                return seeds.Any(seed => x % seed == 0);
+                //return result;
+            }).ToList();
+
             while (!found && n < 50)
             {
                 Console.WriteLine(n);
-                var g = SubSets(a, n);
+                var g = SubSets(filtered, n);
 
                 long i = 1;
 
@@ -82,6 +66,8 @@ namespace Exploration.EgyptianNumbers
 
                 n = n + 2;
             }
+
+            Console.ReadLine();
         }
 
         static void PrintList(List<int> a)
@@ -160,6 +146,46 @@ namespace Exploration.EgyptianNumbers
 
             //dict[c] = result;
             //return result;
+        }
+
+        static long pgcd(long x, long y)
+        {
+            long r = 0;
+            while (y != 0)
+            {
+                r = x % y;
+                x = y;
+                y = r;
+            }
+            return x;
+        }
+
+        static long pgcdForN(params long[] x)
+        {
+            if (x.Length == 2) return pgcd(x[0], x[1]);
+
+            var p = pgcd(x[0], x[1]);
+
+            for (var i = 2; i < x.Length; ++i)
+            {
+                p = pgcd(p, x[i]);
+            }
+
+            return p;
+        }
+
+        static long ppcm(params long[] x)
+        {
+            if (x.Length == 2) return x[0] * x[1] / pgcd(x[0], x[1]);
+
+            var p = x[0] * x[1] / pgcd(x[0], x[1]);
+
+            for (var i = 2; i < x.Length; ++i)
+            {
+                p =  p*x[i]/pgcd(p, x[i]);
+            }
+
+            return p;
         }
     }
 }
