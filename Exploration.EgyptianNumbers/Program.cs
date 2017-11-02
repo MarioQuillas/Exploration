@@ -31,7 +31,7 @@ namespace Exploration.EgyptianNumbers
 
             var seeds = new List<int>(){3, 5, 7, 11};
 
-            var n = 11;
+            var n = 9;
 
             var found = false;
 
