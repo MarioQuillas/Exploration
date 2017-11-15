@@ -82,22 +82,12 @@ namespace Exploration.EgyptianNumbers
 
         static decimal SumInverse(List<int> aa) => aa.Sum(i => ((decimal) 1.0) / i);
 
-        //private static Dictionary<Tuple<List<int>, int>, List<List<int>>> dict = new Dictionary<Tuple<List<int>, int>, List<List<int>>>();
-
         static IEnumerable<List<int>> SubSets(List<int> a, int k)
         {
-            //var c = new Tuple<List<int>, int>(a, k);
-            //if (dict.ContainsKey(c)) return dict[c];
-
             if (a.Count == k)
             {
                 yield return a;
                 yield break;
-                //var rr = new List<List<int>>();
-
-                //rr.Add(a);
-
-                //return rr;
             }
 
             if (k == 1)
@@ -107,8 +97,6 @@ namespace Exploration.EgyptianNumbers
                     yield return new List<int>() {x};
                 }
                 yield break;
-
-                //return a.Select(x => new List<int>(){x}).ToList();
             }
 
             var list = new List<int>();
@@ -121,10 +109,6 @@ namespace Exploration.EgyptianNumbers
             var t = SubSets(list, k);
             var s = SubSets(list, k - 1);
 
-            //var result = new List<List<int>>();
-
-            //result.AddRange(t);
-
             foreach (var item in s)
             {
                 var rr = new List<int>();
@@ -133,19 +117,12 @@ namespace Exploration.EgyptianNumbers
                 rr.AddRange(item);
 
                 yield return rr;
-                //item.Add(a[0]);
-                //result.Add(item);
             }
 
             foreach (var item in t)
             {
                 yield return item;
             }
-
-            
-
-            //dict[c] = result;
-            //return result;
         }
 
         static long pgcd(long x, long y)
