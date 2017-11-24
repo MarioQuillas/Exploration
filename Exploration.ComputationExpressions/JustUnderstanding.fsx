@@ -98,3 +98,26 @@ let t = seq {
   for i in 1 .. 10 do
     yield i}
 
+
+
+ 
+//---------------------------------------------------------------------
+//BAD
+//let initialize(f) = f()
+//let rec num = initialize (fun _ -> num + 1)
+
+//GOOD
+let memoize(f) =
+  let cache = new System.Collections.Generic.Dictionary<_, _>()
+  (fun x ->
+    match cache.TryGetValue(x) with
+    | true, v -> v
+    | _ -> 
+      let v = f(x)
+      cache.Add(x, v)
+      v)
+
+let rec factorial = memoize(fun x ->
+  printfn "Calculating factorial(%d)" x
+  if (x <= 0) then 1 else x * factorial(x - 1))
+//---------------------------------------------------------------------
