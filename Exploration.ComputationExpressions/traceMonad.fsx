@@ -7,70 +7,70 @@
 //let z = f y
 
 type TraceBuilder() =
-    member this.Bind(m, f) = 
-        match m with 
-        | None -> 
-            printfn "Binding with None. Exiting."
-        | Some a -> 
-            printfn "Binding with Some(%A). Continuing" a
-        Option.bind f m
+  member this.Bind(m, f) = 
+    match m with 
+    | None -> 
+      printfn "Binding with None. Exiting."
+    | Some a -> 
+      printfn "Binding with Some(%A). Continuing" a
+    Option.bind f m
 
-    member this.Return(x) = 
-        printfn "Returning a unwrapped %A as an option" x
-        Some x
+  member this.Return(x) = 
+      printfn "Returning a unwrapped %A as an option" x
+      Some x
 
-    member this.ReturnFrom(m) = 
-        printfn "Returning an option (%A) directly" m
-        m
+  member this.ReturnFrom(m) = 
+    printfn "Returning an option (%A) directly" m
+    m
 
 //    member this.Zero() = 
 //        printfn "Zero"
 //        this.Return ()
 
-    member this.Zero() = 
-        printfn "Zero"
-        None
+  member this.Zero() = 
+    printfn "Zero"
+    None
 
-    member this.Yield(x) = 
-        printfn "Yield an unwrapped %A as an option" x
-        Some x
+  member this.Yield(x) = 
+    printfn "Yield an unwrapped %A as an option" x
+    Some x
 
-    member this.YieldFrom(m) = 
-        printfn "Yield an option (%A) directly" m
-        m
+  member this.YieldFrom(m) = 
+    printfn "Yield an option (%A) directly" m
+    m
 
-    member this.Combine (a,b) = 
-        match a,b with
-        | Some a', Some b' ->
-            printfn "combining %A and %A" a' b' 
-            Some (a' + b')
-        | Some a', None ->
-            printfn "combining %A with None" a' 
-            Some a'
-        | None, Some b' ->
-            printfn "combining None with %A" b' 
-            Some b'
-        | None, None ->
-            printfn "combining None with None"
-            None
+  member this.Combine (a,b) = 
+    match a,b with
+    | Some a', Some b' ->
+      printfn "combining %A and %A" a' b' 
+      Some (a' + b')
+    | Some a', None ->
+      printfn "combining %A with None" a' 
+      Some a'
+    | None, Some b' ->
+      printfn "combining None with %A" b' 
+      Some b'
+    | None, None ->
+      printfn "combining None with None"
+      None
 
-    member this.Combine (a,b) = 
-        printfn "Combining %A with %A" a b
-        match a with
-        | Some _ -> a  // a succeeds -- use it
-        | None -> b    // a fails -- use b instead
+  member this.Combine (a,b) = 
+    printfn "Combining %A with %A" a b
+    match a with
+    | Some _ -> a  // a succeeds -- use it
+    | None -> b    // a fails -- use b instead
 
-    member this.Combine (a,b) = 
-        printfn "Combining %A with %A" a b
-        this.Bind( a, fun ()-> b )
+  member this.Combine (a,b) = 
+    printfn "Combining %A with %A" a b
+    this.Bind( a, fun ()-> b )
 
 //    member this.Combine (a,b) = 
 //        printfn "Returning early with %A. Ignoring second part: %A" a b 
 //        a
 
-    member this.Delay(f) = 
-        printfn "Delay"
-        f()
+  member this.Delay(f) = 
+    printfn "Delay"
+    f()
 
 //    member this.Delay(funcToDelay) = 
 //        let delayed = fun () ->

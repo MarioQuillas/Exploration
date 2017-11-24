@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27019.1
+VisualStudioVersion = 15.0.27110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exploration.Cmdlets", "Exploration.Cmdlets\Exploration.Cmdlets.csproj", "{21289238-3FCD-4841-AFC1-20E787C4BA13}"
 EndProject
@@ -44,6 +44,14 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exploration.TheWorld", "Exploration.TheWorld\Exploration.TheWorld.csproj", "{CCEFA4E0-B57A-490E-A6E5-DAC5CCBCCCED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exploration.EgyptianNumbers", "Exploration.EgyptianNumbers\Exploration.EgyptianNumbers.csproj", "{FAAB2CC3-43CC-40AE-A88A-C07CAE08EF62}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Orleans", "Orleans", "{085DE6F2-4352-44F9-98A4-3CC1F53A9C9E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cmdlets", "Cmdlets", "{32335832-5019-44A3-9E46-2F9206C6C426}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DotNetCore", "DotNetCore", "{C631E666-722E-4221-B7F2-D371E934EF0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Akka", "Akka", "{74911A74-3649-471B-A1B9-F17722407430}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -212,6 +220,17 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{21289238-3FCD-4841-AFC1-20E787C4BA13} = {32335832-5019-44A3-9E46-2F9206C6C426}
+		{14344E09-1C6B-4930-84CF-8187CE12B0FA} = {32335832-5019-44A3-9E46-2F9206C6C426}
+		{D6CFA2B4-B7D3-4E39-86E4-EC88C43BFD3E} = {74911A74-3649-471B-A1B9-F17722407430}
+		{D363FA2E-92A6-43F8-A330-90D4DEC60FE6} = {085DE6F2-4352-44F9-98A4-3CC1F53A9C9E}
+		{78BB5DF5-4EF4-4DB3-80CB-2B903C016528} = {085DE6F2-4352-44F9-98A4-3CC1F53A9C9E}
+		{383F63C1-5C61-4C56-8FC5-C0C8A90B2D6D} = {085DE6F2-4352-44F9-98A4-3CC1F53A9C9E}
+		{ACD7B16F-B05C-474E-A4E3-CB571B0C8D09} = {085DE6F2-4352-44F9-98A4-3CC1F53A9C9E}
+		{97656B3D-4803-4A85-B70A-1489A03CE31A} = {C631E666-722E-4221-B7F2-D371E934EF0B}
+		{CCEFA4E0-B57A-490E-A6E5-DAC5CCBCCCED} = {C631E666-722E-4221-B7F2-D371E934EF0B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {94E42DF6-6502-4105-913E-1A063B1D2786}
