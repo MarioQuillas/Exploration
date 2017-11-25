@@ -106,9 +106,9 @@ namespace Exploration.EgyptianNumbers
                 list.Add(a[i]);
             }
 
-            var t = SubSets(list, k);
             var s = SubSets(list, k - 1);
-
+            var t = SubSets(list, k);
+            
             foreach (var item in s)
             {
                 var rr = new List<int>();
