@@ -8,19 +8,47 @@ let coolFileWriter targetFile maxQueueMessages messageHandler =
     file |> ignore
 
   let queue = new System.Collections.Generic.Queue<string>()
+  //let timer = new System.Timers.Timer(5.0f)
+  let stopWatch = new System.Diagnostics.Stopwatch()
+
+  let flushQueue () =
+    let sb = new System.Text.StringBuilder()
+    while (queue.Count > 0) do
+      sb.Append(queue.Dequeue()) |> ignore
+      sb.Append(Environment.NewLine) |> ignore // or appendline
+
+    File.AppendAllText(targetFile, sb.ToString())
+
+  let cronTask timeInterval =
+    let timer = new System.Timers.Timer(float timeInterval)
+    timer.AutoReset <- true
+    async {
+      while (true) do
+        if (stopWatch.Elapsed.TotalSeconds > 1.0) then
+          stopWatch.Stop()
+          flushQueue() }
+
+  Async.Start(cronTask 1.0)
+
   (fun message -> 
+    if (queue.Count = 0) then 
+      stopWatch.Restart()
     queue.Enqueue(messageHandler message)
     if queue.Count = maxQueueMessages then
-      let sb = new System.Text.StringBuilder()
-      while (queue.Count > 0) do
-        sb.Append(queue.Dequeue()) |> ignore
-        sb.Append(Environment.NewLine) |> ignore // or appendline
+      flushQueue())
 
-      //File.AppendAllText(targetFile, sb.ToString())) // this is working
-      use fileStream = new FileStream(targetFile, FileMode.Append, FileAccess.Write)
-      use streamWriter = new StreamWriter(fileStream, Encoding.UTF8)
-        
-      //let encoder = new UTF8Encoding(true)
-      //let bytes = encoder.GetBytes(sb.ToString())
-      //fileStream.Write(bytes, 0, bytes.Length))
-      streamWriter.Write(sb.ToString()))
+let errorLogger targetFile =
+  coolFileWriter targetFile 5 (fun msg -> sprintf "Error at [%s] : %s" (System.DateTime.UtcNow.ToShortTimeString()) msg)
+
+let writer targetFile = coolFileWriter targetFile 2000 id
+
+let testWriter = writer @"D:\test2.txt"
+  
+//let toto = new System.Diagnostics.Stopwatch()
+//toto.Restart()
+//toto.Elapsed.TotalSeconds
+//toto.Stop()
+
+#timer "on"
+[1..1..99] |> List.map (fun item -> testWriter (sprintf "%d" item)) |> ignore
+#timer "off"
