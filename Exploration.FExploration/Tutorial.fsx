@@ -41,7 +41,7 @@ let writer targetFile = simpleFileWriter targetFile 20000 id
 
 let test (lines) =
   use testWriter = writer @"D:\test2.txt"
-  [1..1..lines] |> List.map (fun item -> testWriter.Log(sprintf "%d" item)) |> ignore
+  [1..1..lines] |> List.map (fun item -> testWriter.Write(sprintf "%d" item)) |> ignore
 
 #time "on"
 let lines = 15//10*1000*1000
